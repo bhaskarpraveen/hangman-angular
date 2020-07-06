@@ -1,0 +1,33 @@
+<div class="center">
+    <h1>Guess the word</h1>
+    <div class = "display_word" *ngFor="let letter of display_word">
+        <p class="word" *ngIf="selected_words.indexOf(letter)!==-1 ;else dash">{{letter}}</p>
+        <ng-template #dash>
+            <p class="word"> &#160; _ </p>
+        </ng-template>
+    </div>
+    <br>
+    <div >
+    <div class="alphabets" *ngFor="let alphabet of letterArray">
+        <button mat-raised-button color="primary" (click)="handleAlphabetClick(alphabet)" [disabled]="checkDisable(alphabet)">{{alphabet}}</button>
+    </div>
+</div>
+
+{{game_over}}
+<div>
+    <br>
+    <div *ngIf="game_status==0;else again">
+        <p>You have lost!!</p> <br>
+        <button mat-raised-button  (click)="handleReset()">Try again??</button>
+    </div>
+    
+    <ng-template #again>
+        <div *ngIf="game_status==1">
+            <p>You have won in {{selected_words.length}} moves</p> <br>
+            <button mat-raised-button (click)="handleReset()">Play again??</button>
+        </div>
+    </ng-template>
+</div>
+
+</div>
+<br><br>

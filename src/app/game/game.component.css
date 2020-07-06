@@ -1,0 +1,13 @@
+.word{
+    text-align: center;
+}
+.display_word{
+   display: inline-block;
+    
+}
+.center{
+    text-align: center;
+}
+.alphabets{
+    display: inline-block !important;
+}
